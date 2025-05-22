@@ -1,0 +1,70 @@
+#photographs {
+  display: grid;
+  gap: 20px;
+}
+
+#photographs .blockPhoto {
+  height: 250px;
+  width: 100%;
+  background-color: aqua;
+  border-radius: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  transition: transform 0.5s ease-in-out;
+}
+
+#photographs .blockPhoto:hover {
+  transform: scale(1.05);
+}
+
+#photographs .blockPhoto::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  border-radius: 20px;
+}
+
+#photographs .blockPhoto:hover::before {
+  opacity: 1;
+}
+
+#photographs .blockPhoto h2 {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  color: white;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease-in-out;
+  font-size: 20px;
+  z-index: 1;
+}
+
+#photographs .blockPhoto:hover h2 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media screen and (min-width: 991px) {
+  #photographs{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 426px) and (max-width: 991px) {
+  #photographs{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 425px) {
+  #photographs{
+    grid-template-columns: 1fr;
+  }
+}
